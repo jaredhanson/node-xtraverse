@@ -45,4 +45,10 @@ describe('wrap', function() {
     expect(el).to.equal(reel);
   });
   
+  it('should wrap undefined argument', function() {
+    var el = $();
+    
+    expect(el).to.have.length(0);
+  });
+  
 });

@@ -16,4 +16,15 @@ describe('getters', function() {
     });
   });
   
+  describe('text', function() {
+    it('should get value of element', function() {
+      expect(el.text()).to.equal('hello');
+    });
+    
+    it('should not get value of empty element', function() {
+      var el = $('<foo bar="baz"></foo>');
+      expect(el.text()).to.be.null;
+    });
+  });
+  
 });

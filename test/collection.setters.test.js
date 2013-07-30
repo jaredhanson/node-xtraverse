@@ -30,6 +30,30 @@ describe('setters', function() {
       expect(el.attr('b')).to.equal('2');
       expect(el.toString()).to.equal('<foo bar="bux" a="1" b="2">hello</foo>');
     });
+    
+    it('should be noop on empty collection', function() {
+      var el = $();
+      
+      expect(el.attr('bar', 'qux')).to.equal(el);
+      expect(el.toString()).to.be.null;
+    });
+  });
+  
+  describe('text', function() {
+    it('should set value of existing text', function() {
+      var el = $('<foo bar="baz">hello</foo>');
+      
+      expect(el.text('goodbye')).to.equal(el);
+      expect(el.text()).to.equal('goodbye');
+      expect(el.toString()).to.equal('<foo bar="baz">goodbye</foo>');
+    });
+    
+    it('should be noop on empty collection', function() {
+      var el = $();
+      
+      expect(el.text('goodbye')).to.equal(el);
+      expect(el.toString()).to.be.null;
+    });
   });
   
 });
