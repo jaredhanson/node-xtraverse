@@ -51,16 +51,20 @@ describe('traversing', function() {
         expect(parent.attr('name')).to.equal('Bob');
       });
       
-      describe('should have three grandchildren', function() {
+      it('should have three grandchildren', function() {
         expect(children.children('grandchild')).to.have.length(3);
       });
       
-      describe('should have two genders', function() {
+      it('should have two genders', function() {
         expect(children.children('gender')).to.have.length(2);
       });
       
-      describe('should have five subelements', function() {
+      it('should have five subelements', function() {
         expect(children.children()).to.have.length(5);
+      });
+      
+      it('should return empty set for unmatched qualifier', function() {
+        expect(children.children('foo')).to.have.length(0);
       });
     });
     
@@ -81,11 +85,11 @@ describe('traversing', function() {
         expect(parent.attr('name')).to.equal('Bob');
       });
       
-      describe('should have one child', function() {
+      it('should have one child', function() {
         expect(child.children('grandchild')).to.have.length(1);
       });
       
-      describe('should have two subelements', function() {
+      it('should have two subelements', function() {
         expect(child.children()).to.have.length(2);
       });
     });
@@ -107,11 +111,11 @@ describe('traversing', function() {
         expect(parent.attr('name')).to.equal('Bob');
       });
       
-      describe('should have two children', function() {
+      it('should have two children', function() {
         expect(child.children('grandchild')).to.have.length(2);
       });
       
-      describe('should have three subelements', function() {
+      it('should have three subelements', function() {
         expect(child.children()).to.have.length(3);
       });
     });
@@ -130,9 +134,20 @@ describe('traversing', function() {
         expect(parents.last().attr('name')).to.equal('Jane');
       });
       
+      it('should select parents of all grand children in set when using name qualifier', function() {
+        var parents = grandchildren.parent('child');
+        expect(parents).to.have.length(2);
+        expect(parents.first().attr('name')).to.equal('John');
+        expect(parents.last().attr('name')).to.equal('Jane');
+      });
+      
       it('should not find elements that are not direct parents', function() {
         var grandparent = grandchildren.parent('parent');
         expect(grandparent).to.have.length(0);
+      });
+      
+      it('should return empty set for unmatched qualifier', function() {
+        expect(grandchildren.parent('foo')).to.have.length(0);
       });
     });
   });
