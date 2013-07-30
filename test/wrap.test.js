@@ -1,6 +1,5 @@
 var fs = require('fs')
   , DOMParser = require('xmldom').DOMParser
-  , Collection = require('../lib/collection')
   , $ = require('..');
 
 
