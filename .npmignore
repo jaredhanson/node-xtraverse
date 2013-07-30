@@ -1,7 +1,9 @@
 README.md
 Makefile
-doc/
+build/
+docs/
 examples/
+support/
 test/
 
 # Mac OS X
