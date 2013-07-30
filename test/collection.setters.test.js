@@ -31,6 +31,13 @@ describe('setters', function() {
       expect(el.toString()).to.equal('<foo bar="bux" a="1" b="2">hello</foo>');
     });
     
+    it('should set value of all elements in set', function() {
+      var el = $('<foo><bar>hello</bar><baz>world</baz></foo>').children();
+      
+      expect(el.attr('a', '1')).to.equal(el);
+      expect(el.root().toString()).to.equal('<foo><bar a="1">hello</bar><baz a="1">world</baz></foo>');
+    });
+    
     it('should be noop on empty collection', function() {
       var el = $();
       
@@ -46,6 +53,14 @@ describe('setters', function() {
       expect(el.text('goodbye')).to.equal(el);
       expect(el.text()).to.equal('goodbye');
       expect(el.toString()).to.equal('<foo bar="baz">goodbye</foo>');
+    });
+    
+    it('should set value of all elements in set', function() {
+      var el = $('<foo><bar>hello</bar><baz>world</baz></foo>').children();
+      
+      expect(el.text('goodbye')).to.equal(el);
+      expect(el.text()).to.equal('goodbye');
+      expect(el.root().toString()).to.equal('<foo><bar>goodbye</bar><baz>goodbye</baz></foo>');
     });
     
     it('should be noop on empty collection', function() {
