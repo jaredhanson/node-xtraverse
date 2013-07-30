@@ -1,0 +1,9 @@
+<parent name="bob">
+  <child name="john">
+    <grandchild name="sally"/>
+  </child>
+  <child name="jane">
+    <grandchild name="sam"/>
+    <grandchild name="scott"/>
+  </child>
+</parent>
