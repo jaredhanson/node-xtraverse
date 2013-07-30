@@ -4,8 +4,7 @@ var fs = require('fs')
 
 describe('Collection', function() {
   
-  var xml = fs.readFileSync(__dirname + '/data/parent-2children-3grandchildren.xml', 'utf8');
-  var doc = $(xml);
+  var doc = $('<foo bar="baz">hello</foo>');
   
   it('should alias each to forEach', function() {
     expect(doc.each).to.equal(doc.forEach);
