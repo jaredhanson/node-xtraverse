@@ -20,6 +20,22 @@ describe('getters', function() {
     });
   });
   
+  describe('attrNS', function() {
+    var el = $('<foo bar="baz" baz:bux="qux" xmlns="urn:example:foo" xmlns:baz="urn:example:baz">hello</foo>');
+    
+    it('should get value of attribute', function() {
+      expect(el.attrNS('bar')).to.equal('baz');
+    });
+    
+    it('should get value of attribute with namespace', function() {
+      expect(el.attrNS('bux', 'urn:example:baz')).to.equal('qux');
+    });
+    
+    it('should not get value of non-existent attribute', function() {
+      expect(el.attrNS('bar', 'urn:example:foo')).to.be.null;
+    });
+  });
+  
   describe('text', function() {
     it('should get value of element', function() {
       expect(el.text()).to.equal('hello');

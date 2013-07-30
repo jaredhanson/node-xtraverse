@@ -45,6 +45,24 @@ describe('setters', function() {
     });
   });
   
+  // FIXME: This is being skipped for now because it fails.  The failure
+  //        appears to be an issue with the underlying `xmldom` module.
+  describe('attrNS', function() {
+    it.skip('should set value of existing attribute', function() {
+      var el = $('<foo bar="baz" baz:bux="qux" xmlns="urn:example:foo" xmlns:baz="urn:example:baz">hello</foo>');
+      
+      expect(el.attrNS('bux', 'urn:example:baz', 'quux')).to.equal(el);
+      expect(el.toString()).to.equal('<foo bar="baz" baz:bux="quux" xmlns="urn:example:foo" xmlns:baz="urn:example:baz">hello</foo>');
+    });
+    
+    it.skip('should set value of new attribute', function() {
+      var el = $('<foo bar="baz" baz:bux="qux" xmlns="urn:example:foo" xmlns:baz="urn:example:baz">hello</foo>');
+      
+      expect(el.attrNS('bax', 'urn:example:bix', 'box')).to.equal(el);
+      expect(el.toString()).to.equal('<foo bar="baz" baz:bux="qux" xmlns="urn:example:foo" xmlns:baz="urn:example:baz">hello</foo>');
+    });
+  });
+  
   describe('text', function() {
     it('should set value of existing text', function() {
       var el = $('<foo bar="baz">hello</foo>');
