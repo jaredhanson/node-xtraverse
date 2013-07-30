@@ -22,7 +22,7 @@ describe('wrap', function() {
     
     expect(el).to.have.length(1);
     expect(el.name()).to.equal('child');
-    expect(el.attr('name')).to.equal('john');
+    expect(el.attr('name')).to.equal('John');
   });
   
   it('should strings of XML', function() {
