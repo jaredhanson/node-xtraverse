@@ -50,6 +50,18 @@ describe('traversing', function() {
         expect(parent).to.have.length(1);
         expect(parent.attr('name')).to.equal('Bob');
       });
+      
+      describe('should have three grandchildren', function() {
+        expect(children.children('grandchild')).to.have.length(3);
+      });
+      
+      describe('should have two genders', function() {
+        expect(children.children('gender')).to.have.length(2);
+      });
+      
+      describe('should have five subelements', function() {
+        expect(children.children()).to.have.length(5);
+      });
     });
     
     describe('first child', function() {
@@ -101,6 +113,30 @@ describe('traversing', function() {
       
       describe('should have three subelements', function() {
         expect(child.children()).to.have.length(3);
+      });
+    });
+    
+    describe('grand children', function() {
+      var grandchildren = parent.children().children('grandchild');
+    
+      it('should be length of three', function() {
+        expect(grandchildren).to.have.length(3);
+      });
+      
+      it('should select parents of all grand children in set', function() {
+        var parents = grandchildren.parent();
+        expect(parents).to.have.length(2);
+        expect(parents.first().attr('name')).to.equal('John');
+        expect(parents.last().attr('name')).to.equal('Jane');
+      });
+      
+      // FIXME: I think selecting more than one-level up should be disallowed.
+      it.skip('should select grand parent when name-qualified', function() {
+        var grandparent = grandchildren.parent('parent');
+        //console.log(grandparent);
+        console.log(grandparent.length);
+        //expect(grandparent).to.have.length(1);
+        //expect(grandparent.first().attr('name')).to.equal('John');
       });
     });
   });
