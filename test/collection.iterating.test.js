@@ -229,7 +229,7 @@ describe('iterating', function() {
       describe('first child', function() {
         var first = children.at(0);
         
-        it('should iterate from first to all next b elements', function() {
+        it('should get all siblings', function() {
           var siblings = first.siblings();
           
           expect(siblings).to.have.length(4);
@@ -238,12 +238,28 @@ describe('iterating', function() {
           expect(siblings[2].textContent).to.equal('4');
           expect(siblings[3].textContent).to.equal('5');
         });
+        
+        it('should get qualified siblings with a name', function() {
+          var siblings = first.siblings('a');
+          
+          expect(siblings).to.have.length(2);
+          expect(siblings[0].textContent).to.equal('2');
+          expect(siblings[1].textContent).to.equal('4');
+        });
+        
+        it('should get qualified siblings with b name', function() {
+          var siblings = first.siblings('b');
+          
+          expect(siblings).to.have.length(2);
+          expect(siblings[0].textContent).to.equal('3');
+          expect(siblings[1].textContent).to.equal('5');
+        });
       });
       
       describe('third child', function() {
         var third = children.at(2);
         
-        it('should iterate from first to all next b elements', function() {
+        it('should get all siblings', function() {
           var siblings = third.siblings();
           
           expect(siblings).to.have.length(4);
@@ -257,7 +273,7 @@ describe('iterating', function() {
       describe('fifth child', function() {
         var fifth = children.at(4);
         
-        it('should iterate from first to all next b elements', function() {
+        it('should get all siblings', function() {
           var siblings = fifth.siblings();
           
           expect(siblings).to.have.length(4);
