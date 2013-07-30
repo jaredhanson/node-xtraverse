@@ -18,4 +18,8 @@ describe('Collection', function() {
     expect(doc.prev).to.equal(doc.previous);
   });
   
+  it('should alias ns to namespace', function() {
+    expect(doc.ns).to.equal(doc.namespace);
+  });
+  
 });
