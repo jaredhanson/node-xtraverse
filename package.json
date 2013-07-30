@@ -4,7 +4,9 @@
   "description": "Wrapper for simplifying XML traversal.",
   "keywords": [
     "xml",
-    "dom"
+    "dom",
+    "traversal",
+    "builder"
   ],
   "repository": {
     "type": "git",
