@@ -1,0 +1,13 @@
+<parent name="Bob" xmlns="urn:example:human" xmlns:alien="urn:example:alien">
+  <alien:child name="John">
+    <grandchild name="Sally"/>
+    <alien:grandchild name="Sorb"/>
+    <gender>male</gender>
+  </alien:child>
+  <child name="Jane">
+    <grandchild name="Sam"/>
+    <grandchild name="Scott"/>
+    <alien:grandchild name="Shib"/>
+    <gender>female</gender>
+  </child>
+</parent>
