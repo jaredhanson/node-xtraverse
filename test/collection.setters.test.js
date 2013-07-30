@@ -1,5 +1,4 @@
-var fs = require('fs')
-  , $ = require('..');
+var $ = require('..');
 
 
 describe('setters', function() {

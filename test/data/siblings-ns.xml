@@ -1,0 +1,7 @@
+<one:root xmlns:one="urn:example:one" xmlns:two="urn:example:two">
+  <one:a>1</one:a>
+  <two:a>2</two:a>
+  <two:b>3</two:b>
+  <one:a>4</one:a>
+  <one:b>5</one:b>
+</one:root>
