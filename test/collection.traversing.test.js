@@ -20,6 +20,11 @@ describe('traversing', function() {
         expect(parent[0].attributes[0].value).to.equal('Bob');
         expect(parent[1]).to.be.undefined;
       });
+      
+      it('should not find elements that are not direct children', function() {
+        var grandchildren = parent.children('grandchild');
+        expect(grandchildren).to.have.length(0);
+      });
     });
     
     describe('children', function() {
@@ -63,6 +68,14 @@ describe('traversing', function() {
         expect(parent).to.have.length(1);
         expect(parent.attr('name')).to.equal('Bob');
       });
+      
+      describe('should have one child', function() {
+        expect(child.children('grandchild')).to.have.length(1);
+      });
+      
+      describe('should have two subelements', function() {
+        expect(child.children()).to.have.length(2);
+      });
     });
     
     describe('last child', function() {
@@ -80,6 +93,14 @@ describe('traversing', function() {
         var parent = child.parent();
         expect(parent).to.have.length(1);
         expect(parent.attr('name')).to.equal('Bob');
+      });
+      
+      describe('should have two children', function() {
+        expect(child.children('grandchild')).to.have.length(2);
+      });
+      
+      describe('should have three subelements', function() {
+        expect(child.children()).to.have.length(3);
       });
     });
   });
