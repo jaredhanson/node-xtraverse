@@ -70,6 +70,62 @@ describe('iterating', function() {
         expect(vals[0]).to.equal('3');
         expect(vals[1]).to.equal('5');
       });
+      
+      it('should iterate from last to first', function() {
+        var vals = [];
+        for (var sib = siblings.last(); sib.length > 0; sib = sib.prev()) {
+          vals.push(sib.text());
+        }
+        expect(vals).to.have.length(5);
+        expect(vals[0]).to.equal('5');
+        expect(vals[1]).to.equal('4');
+        expect(vals[2]).to.equal('3');
+        expect(vals[3]).to.equal('2');
+        expect(vals[4]).to.equal('1');
+      });
+      
+      it('should iterate from last to all previous a elements', function() {
+        var vals = [];
+        for (var sib = siblings.last(); sib.length > 0; sib = sib.prev('a')) {
+          vals.push(sib.text());
+        }
+        expect(vals).to.have.length(4);
+        expect(vals[0]).to.equal('5'); // first is unqualified, includes <b>
+        expect(vals[1]).to.equal('4');
+        expect(vals[2]).to.equal('2');
+        expect(vals[3]).to.equal('1');
+      });
+      
+      it('should iterate from last to all previous b elements', function() {
+        var vals = [];
+        for (var sib = siblings.last(); sib.length > 0; sib = sib.prev('b')) {
+          vals.push(sib.text());
+        }
+        expect(vals).to.have.length(2);
+        expect(vals[0]).to.equal('5');
+        expect(vals[1]).to.equal('3');
+      });
+      
+      it('should iterate from last a to first a', function() {
+        var vals = [];
+        for (var sib = siblings.last('a'); sib.length > 0; sib = sib.prev('a')) {
+          vals.push(sib.text());
+        }
+        expect(vals).to.have.length(3);
+        expect(vals[0]).to.equal('4');
+        expect(vals[1]).to.equal('2');
+        expect(vals[2]).to.equal('1');
+      });
+      
+      it('should iterate from last b to first b', function() {
+        var vals = [];
+        for (var sib = siblings.last('b'); sib.length > 0; sib = sib.prev('b')) {
+          vals.push(sib.text());
+        }
+        expect(vals).to.have.length(2);
+        expect(vals[0]).to.equal('5');
+        expect(vals[1]).to.equal('3');
+      });
     });
     
     describe('only a siblings', function() {
