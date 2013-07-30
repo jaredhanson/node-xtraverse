@@ -135,7 +135,7 @@ describe('traversing', function() {
         var grandparent = grandchildren.parent('parent');
         //console.log(grandparent);
         console.log(grandparent.length);
-        //expect(grandparent).to.have.length(1);
+        //expect(grandparent).to.have.length(0);
         //expect(grandparent.first().attr('name')).to.equal('John');
       });
     });
