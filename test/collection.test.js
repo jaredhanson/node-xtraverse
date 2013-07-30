@@ -10,6 +10,10 @@ describe('Collection', function() {
     expect(doc.each).to.equal(doc.forEach);
   });
   
+  it('should alias root to tree', function() {
+    expect(doc.root).to.equal(doc.tree);
+  });
+  
   it('should alias up to parent', function() {
     expect(doc.up).to.equal(doc.parent);
   });
