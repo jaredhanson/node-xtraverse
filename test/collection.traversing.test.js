@@ -130,13 +130,9 @@ describe('traversing', function() {
         expect(parents.last().attr('name')).to.equal('Jane');
       });
       
-      // FIXME: I think selecting more than one-level up should be disallowed.
-      it.skip('should select grand parent when name-qualified', function() {
+      it('should not find elements that are not direct parents', function() {
         var grandparent = grandchildren.parent('parent');
-        //console.log(grandparent);
-        console.log(grandparent.length);
-        //expect(grandparent).to.have.length(0);
-        //expect(grandparent.first().attr('name')).to.equal('John');
+        expect(grandparent).to.have.length(0);
       });
     });
   });
