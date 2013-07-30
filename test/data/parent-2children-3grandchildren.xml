@@ -1,11 +1,11 @@
 <parent name="Bob">
   <child name="John">
-    <gender>male</gender>
     <grandchild name="Sally"/>
+    <gender>male</gender>
   </child>
   <child name="Jane">
-    <gender>female</gender>
     <grandchild name="Sam"/>
     <grandchild name="Scott"/>
+    <gender>female</gender>
   </child>
 </parent>

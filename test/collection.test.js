@@ -11,4 +11,8 @@ describe('Collection', function() {
     expect(doc.up).to.equal(doc.parent);
   });
   
+  it('root alias prev to previous', function() {
+    expect(doc.prev).to.equal(doc.previous);
+  });
+  
 });
