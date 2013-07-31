@@ -1,7 +1,8 @@
 # xtraverse
 
-[![Build Status](https://travis-ci.org/jaredhanson/node-xtraverse.png)](http://travis-ci.org/jaredhanson/node-xtraverse)
-[![David DM](https://david-dm.org/jaredhanson/node-xtraverse.png)](http://david-dm.org/jaredhanson/node-xtraverse)
+[![Build](https://travis-ci.org/jaredhanson/node-xtraverse.png)](http://travis-ci.org/jaredhanson/node-xtraverse)
+[![Coverage](https://coveralls.io/repos/jaredhanson/node-xtraverse/badge.png)](https://coveralls.io/r/jaredhanson/node-xtraverse)
+[![Dependencies](https://david-dm.org/jaredhanson/node-xtraverse.png)](http://david-dm.org/jaredhanson/node-xtraverse)
 
 
 Simplified traversal and building of an XML DOM.
