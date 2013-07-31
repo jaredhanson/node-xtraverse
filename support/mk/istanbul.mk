@@ -16,4 +16,4 @@ view-istanbul-report:
 	open $(ISTANBUL_HTML_REPORT_PATH)
 
 
-.PHONY: coverage-browserify
+.PHONY: test-istanbul-mocha view-istanbul-report

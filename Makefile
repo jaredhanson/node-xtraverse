@@ -12,7 +12,6 @@ view-cov: view-istanbul-report
 # ==============================================================================
 include support/mk/node.mk
 include support/mk/mocha.mk
-include support/mk/istanbul.mk
 
 # ==============================================================================
 # Browserify
@@ -27,6 +26,13 @@ include support/mk/testling.mk
 # ==============================================================================
 include support/mk/notes.mk
 include support/mk/jshint.mk
+include support/mk/istanbul.mk
+
+# ==============================================================================
+# Continuous Integration
+# ==============================================================================
+
+ci-travis: test test-cov
 
 # ==============================================================================
 # Clean
@@ -38,4 +44,4 @@ clean:
 clobber: clean clobber-node
 
 
-.PHONY: test clean clobber
+.PHONY: lint test test-cov view-cov ci-travis clean clobber
