@@ -53,6 +53,21 @@ describe('building', function() {
       
       expect(el.toString()).to.equal('<foo bar="baz"><bar><baz/></bar></foo>');
     });
+    
+    it('should append element followed by text', function() {
+      var el = $('<foo bar="baz"></foo>');
+      el.c('bar').t('garply');
+      
+      expect(el.toString()).to.equal('<foo bar="baz"><bar>garply</bar></foo>');
+    });
+    
+    it('should append element followed by text followed by element', function() {
+      var el = $('<foo bar="baz"></foo>');
+      el.c('bar').t('garply').up()
+        .c('bux');
+      
+      expect(el.toString()).to.equal('<foo bar="baz"><bar>garply</bar><bux/></foo>');
+    });
   
   });
   

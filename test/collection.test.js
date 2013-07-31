@@ -25,4 +25,12 @@ describe('Collection', function() {
     expect(doc.ns).to.equal(doc.namespace);
   });
   
+  it('should alias attr to attrs', function() {
+    expect(doc.attr).to.equal(doc.attrs);
+  });
+  
+  it('should alias t to text', function() {
+    expect(doc.t).to.equal(doc.text);
+  });
+  
 });
