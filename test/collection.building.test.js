@@ -26,18 +26,18 @@ describe('building', function() {
       expect(el.toString()).to.equal('<foo bar="baz"><bar a="1" b="2">garply</bar></foo>');
     });
     
-    it.skip('should append element with attributes and namespace', function() {
+    it('should append element with attributes and namespace', function() {
       var el = $('<foo bar="baz"></foo>');
       el.c('bar', { 'a': '1', 'b': '2', xmlns: 'urn:foo:bar' });
       
-      expect(el.toString()).to.equal('<foo bar="baz"><bar a="1" b="2" xmlns=\"urn:foo:bar\"/></foo>');
+      expect(el.toString()).to.equal('<foo bar="baz"><bar xmlns=\"urn:foo:bar\" a="1" b="2"/></foo>');
     });
     
-    it.skip('should append element with attributes and namespace that already exists', function() {
+    it('should append element with attributes and namespace that already exists', function() {
       var el = $('<foo bar="baz" xmlns=\"urn:foo:bar\"></foo>');
       el.c('bar', { 'a': '1', 'b': '2', xmlns: 'urn:foo:bar' });
       
-      expect(el.toString()).to.equal('<foo bar="baz" xmlns=\"urn:foo:bar\"><bar a="1" b="2" xmlns=\"urn:foo:bar\"/></foo>');
+      expect(el.toString()).to.equal('<foo bar="baz" xmlns=\"urn:foo:bar\"><bar xmlns=\"urn:foo:bar\" a="1" b="2"/></foo>');
     });
     
     it('should append element to all element in set', function() {
