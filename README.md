@@ -1,5 +1,9 @@
 # xtraverse
 
+[![Build Status](https://travis-ci.org/jaredhanson/node-xtraverse.png)](http://travis-ci.org/jaredhanson/node-xtraverse)
+[![David DM](https://david-dm.org/jaredhanson/node-xtraverse.png)](http://david-dm.org/jaredhanson/node-xtraverse)
+
+
 Simplified traversal and building of an XML DOM.
 
 This module provides a [jQuery](http://jquery.com/)-like wrapper, but geared for
@@ -47,11 +51,6 @@ var feed = XT('<feed xmlns="http://www.w3.org/2005/Atom"/>')
 
     $ npm install
     $ npm test
-
-## Status
-
-[![Build Status](https://secure.travis-ci.org/jaredhanson/node-xtraverse.png)](http://travis-ci.org/jaredhanson/node-xtraverse)
-[![David DM](https://david-dm.org/jaredhanson/node-xtraverse.png)](http://david-dm.org/jaredhanson/node-xtraverse)
 
 ## Credits
 
