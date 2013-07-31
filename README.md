@@ -16,8 +16,10 @@ is W3C standard, provided by [XMLDOM](https://github.com/jindw/xmldom).
 
 #### Parse XML
 
-var xml = fs.readFileSync(__dirname + '/feed.xml', 'utf8');
+```javascript
+var xml = fs.readFileSync('feed.xml', 'utf8');
 var feed = XT(xml);
+```
 
 #### Traverse XML
 
