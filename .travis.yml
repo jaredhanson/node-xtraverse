@@ -6,7 +6,7 @@ node_js:
   - "0.10"
 
 before_install:
- - "npm install instanbul -g"
+ - "npm install istanbul -g"
  - "npm install coveralls -g"
 
 script: "make ci-travis"
