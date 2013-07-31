@@ -5,6 +5,34 @@ describe('getters', function() {
   
   var el = $('<foo bar="baz">hello</foo>');
   
+  describe('is', function() {
+    it('should be true if name is same', function() {
+      expect(el.is('foo')).to.be.true;
+    });
+    
+    it('should be false if name is not same', function() {
+      expect(el.is('foox')).to.be.false;
+    });
+    
+    var nsel = $('<foo bar="baz" xmlns="urn:example:foo">hello</foo>');
+    
+    it('should be true if name is same and no namespace specified', function() {
+      expect(nsel.is('foo')).to.be.true;
+    });
+    
+    it('should be true if name is same and namespace specified', function() {
+      expect(nsel.is('foo', 'urn:example:foo')).to.be.true;
+    });
+    
+    it('should be false if name is same and namespace is different', function() {
+      expect(nsel.is('foo', 'urn:example:foox')).to.be.false;
+    });
+    
+    it('should be false if no arguments passed', function() {
+      expect(nsel.is()).to.be.false;
+    });
+  });
+  
   describe('attr', function() {
     it('should get value of attribute', function() {
       expect(el.attr('bar')).to.equal('baz');
