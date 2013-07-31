@@ -2,9 +2,36 @@
 
 Simplified traversal and building of an XML DOM.
 
+This module provides a [jQuery](http://jquery.com/)-like wrapper, but geared for
+traversing and manipulating an XML DOM, as opposeed to an HTML DOM.  The API
+aims to be compatible with [Strophe.js](https://github.com/strophe/strophejs)'
+`Builder` and [Less-Than XML](https://github.com/astro/ltx).  The underlying DOM
+is W3C standard, provided by [XMLDOM](https://github.com/jindw/xmldom).
+
 ## Install
 
     $ npm install xtraverse
+
+## Usage
+
+#### Parse XML
+
+var xml = fs.readFileSync(__dirname + '/feed.xml', 'utf8');
+var feed = XT(xml);
+
+#### Traverse XML
+
+```javascript
+console.log(feed.children('title').text());
+for (var link = feed.children().first('link'); link.length > 0; link = link.next('link')) {
+  console.log(link.attr('href'));
+}
+for (var entry = feed.children().first('entry'); entry.length > 0; entry = entry.next('entry')) {
+  console.log('Entry: ' + entry.children('title').text());
+}
+```
+
+#### Build XML
 
 ## Tests
 
