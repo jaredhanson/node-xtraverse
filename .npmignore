@@ -3,6 +3,7 @@ Makefile
 build/
 docs/
 examples/
+reports/
 support/
 test/
 

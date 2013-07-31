@@ -1,8 +1,10 @@
 SOURCES = lib/*.js
 TESTS = test/*.test.js
 
-test: test-mocha
 lint: lint-jshint
+test: test-mocha
+test-cov: test-istanbul-mocha
+view-cov: view-istanbul-report
 
 
 # ==============================================================================
@@ -10,6 +12,7 @@ lint: lint-jshint
 # ==============================================================================
 include support/mk/node.mk
 include support/mk/mocha.mk
+include support/mk/istanbul.mk
 
 # ==============================================================================
 # Browserify
@@ -30,6 +33,7 @@ include support/mk/jshint.mk
 # ==============================================================================
 clean:
 	rm -rf build
+	rm -rf reports
 
 clobber: clean clobber-node
 
