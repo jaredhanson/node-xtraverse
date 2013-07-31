@@ -31,8 +31,10 @@ include support/mk/istanbul.mk
 # ==============================================================================
 # Continuous Integration
 # ==============================================================================
+include support/mk/coveralls.mk
 
 ci-travis: test test-cov
+submit-coverage-to-coveralls: submit-istanbul-lcov-to-coveralls
 
 # ==============================================================================
 # Clean

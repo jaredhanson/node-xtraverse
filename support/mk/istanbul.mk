@@ -2,6 +2,7 @@ ISTANBUL ?= istanbul
 ISTANBUL_OUT ?= ./reports/coverage
 ISTANBUL_REPORT ?= lcov
 ISTANBUL_HTML_REPORT_PATH ?= $(ISTANBUL_OUT)/lcov-report/index.html
+ISTANBUL_LCOV_INFO_PATH ?= $(ISTANBUL_OUT)/lcov.info
 
 
 test-istanbul-mocha: node_modules

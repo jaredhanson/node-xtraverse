@@ -10,3 +10,6 @@ before_install:
  - "npm install coveralls -g"
 
 script: "make ci-travis"
+
+after_success:
+  - "make submit-coverage-to-coveralls"
