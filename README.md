@@ -1,6 +1,6 @@
 # xtraverse
 
-Simplified traversal and construction of an XML DOM.
+Simplified traversal and building of an XML DOM.
 
 ## Install
 
