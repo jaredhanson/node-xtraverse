@@ -54,6 +54,28 @@ describe('building', function() {
       expect(el.toString()).to.equal('<foo bar="baz"><bar><baz/></bar></foo>');
     });
     
+    it('should append elements with two sub elements', function() {
+      var el = $('<foo bar="baz"></foo>');
+      el.c('bar').c('baz').up().c('qux');
+      
+      expect(el.toString()).to.equal('<foo bar="baz"><bar><baz/><qux/></bar></foo>');
+    });
+    
+    it('should append two elements with one sub element each', function() {
+      var el = $('<foo bar="baz"></foo>');
+      el.c('bar').c('baz').up().up().c('qux').c('quux');
+      
+      expect(el.toString()).to.equal('<foo bar="baz"><bar><baz/></bar><qux><quux/></qux></foo>');
+    });
+    
+    it('should append two elements with text content', function() {
+      var el = $('<foo bar="baz"></foo>');
+      el.c('bar').t('warbly').up()
+        .c('baz').t('gorply');
+      
+      expect(el.toString()).to.equal('<foo bar="baz"><bar>warbly</bar><baz>gorply</baz></foo>');
+    });
+    
     it('should append element followed by text', function() {
       var el = $('<foo bar="baz"></foo>');
       el.c('bar').t('garply');
