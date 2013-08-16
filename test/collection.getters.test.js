@@ -4,27 +4,26 @@ var $ = require('..');
 describe('getters', function() {
   
   var el = $('<foo bar="baz">hello</foo>');
+  var nsel = $('<foo bar="baz" xmlns="urn:example:foo">hello</foo>');
   
   describe('is', function() {
-    it('should be true if name is same', function() {
+    it('should be true if name is equal', function() {
       expect(el.is('foo')).to.be.true;
     });
     
-    it('should be false if name is not same', function() {
+    it('should be false if name is not equal', function() {
       expect(el.is('foox')).to.be.false;
     });
     
-    var nsel = $('<foo bar="baz" xmlns="urn:example:foo">hello</foo>');
-    
-    it('should be true if name is same and no namespace specified', function() {
+    it('should be true if name is equal and no namespace specified', function() {
       expect(nsel.is('foo')).to.be.true;
     });
     
-    it('should be true if name is same and namespace specified', function() {
+    it('should be true if name and namespace are equal', function() {
       expect(nsel.is('foo', 'urn:example:foo')).to.be.true;
     });
     
-    it('should be false if name is same and namespace is different', function() {
+    it('should be false if name is equal and namespace is not equal', function() {
       expect(nsel.is('foo', 'urn:example:foox')).to.be.false;
     });
     
@@ -38,7 +37,7 @@ describe('getters', function() {
       expect(el.attr('bar')).to.equal('baz');
     });
     
-    it('should get value of first element in set', function() {
+    it('should get value of attribute of first element in set', function() {
       var el = $('<foo><bar a="one">baz</bar><qux a="two">qoo</qux></foo>').children();
       expect(el.attr('a')).to.equal('one');
     });
@@ -59,7 +58,7 @@ describe('getters', function() {
       expect(el.attrNS('bux', 'urn:example:baz')).to.equal('qux');
     });
     
-    it('should not get value of non-existent attribute', function() {
+    it('should not get value of non-existent attribute with namespace', function() {
       expect(el.attrNS('bar', 'urn:example:foo')).to.be.null;
     });
   });
