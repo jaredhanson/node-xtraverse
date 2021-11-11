@@ -11,7 +11,7 @@ This module provides a [jQuery](http://jquery.com/)-like wrapper, but geared for
 traversing and manipulating an XML DOM, as opposeed to an HTML DOM.  The API
 aims to be compatible with [Strophe.js](https://github.com/strophe/strophejs)'
 `Builder` and [Less-Than XML](https://github.com/astro/ltx).  The underlying DOM
-is W3C standard, provided by [XMLDOM](https://github.com/jindw/xmldom).
+is W3C standard, provided by [XMLDOM](https://github.com/xmldom/xmldom).
 
 ## Install
 

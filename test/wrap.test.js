@@ -1,5 +1,5 @@
 var fs = require('fs')
-  , DOMParser = require('xmldom').DOMParser
+  , DOMParser = require('@xmldom/xmldom').DOMParser
   , $ = require('..');
 
 
